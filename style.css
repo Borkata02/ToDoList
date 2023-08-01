@@ -180,6 +180,39 @@ body{
     text-align: center;
     text-transform: uppercase;
 }
+/* Responsive */
+@media only screen and (max-width: 450px){
+	.list{
+        min-width: 300px;
+    }
+    .list ol {
+        font-size: 15px;
+     }
+}
+@media only screen and (max-width: 400px){
+	.list{
+        min-width: 250px;
+    }
+    .list ol {
+       font-size: 13px;
+    }
+}
+@media only screen and (max-width: 350px){
+	.list{
+        min-width: 200px;
+    }
+    .list ol {
+       font-size: 13px;
+    }
+}
+@media only screen and (max-width: 300px){
+	.list{
+        min-width: 100px;
+    }
+    .list ol {
+       font-size: 12px;
+    }
+}
 
 
 
