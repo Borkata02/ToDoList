@@ -64,7 +64,7 @@ body{
 .list ol {
     list-style-position: inside; 
     padding-left: 20px; 
-   
+    
 }
 .cyrillic{
     font-family: 'Exo 2', sans-serif;
@@ -191,37 +191,37 @@ body{
 }
 /* Responsive */
 @media only screen and (max-width: 450px){
-	.list{
+    .list{
         min-width: 300px;
     }
     .list ol {
         font-size: 15px;
-     }
+    }
 }
 @media only screen and (max-width: 400px){
-	.list{
+    .list{
         min-width: 250px;
     }
     .list ol {
-       font-size: 13px;
+        font-size: 13px;
     }
 }
 @media only screen and (max-width: 350px){
-	.list{
+    .list{
         min-width: 200px;
     }
     .list ol {
-       font-size: 13px;
+        font-size: 13px;
     }
 }
 @media only screen and (max-width: 300px){
-	.list{
+    .list{
         min-width: 100px;
     }
     .list ol {
-       font-size: 12px;
+        font-size: 12px;
     }
-
+    
 }
 
 

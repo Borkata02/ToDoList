@@ -67,42 +67,42 @@
             });
             
         });
-
+        
         // Language Font Detect
         
         function isCyrillic(text) {
-      return /[а-яА-ЯЁё]/.test(text);
-    }
-
-    function isEnglish(text) {
-      return /[a-zA-Z]/.test(text);
-    }
-
-    function detectFont(element) {
-      var text = element.textContent;
-
-      if (isCyrillic(text)) {
-        element.classList.add('cyrillic');
-        element.classList.remove('english');
-      } else if (isEnglish(text)) {
-        element.classList.add('english');
-        element.classList.remove('cyrillic');
-      }
-    }
-
-    var initialTextElements = document.querySelectorAll('.detect');
-    initialTextElements.forEach(function(element) {
-      detectFont(element);
-    });
-
-    document.querySelector('.list').addEventListener('DOMNodeInserted', function(event) {
-      var insertedElement = event.target;
-
-      if (insertedElement.classList && insertedElement.classList.contains('detect')) {
-        detectFont(insertedElement);
-      }
-    });
-
+            return /[а-яА-ЯЁё]/.test(text);
+        }
+        
+        function isEnglish(text) {
+            return /[a-zA-Z]/.test(text);
+        }
+        
+        function detectFont(element) {
+            var text = element.textContent;
+            
+            if (isCyrillic(text)) {
+                element.classList.add('cyrillic');
+                element.classList.remove('english');
+            } else if (isEnglish(text)) {
+                element.classList.add('english');
+                element.classList.remove('cyrillic');
+            }
+        }
+        
+        var initialTextElements = document.querySelectorAll('.detect');
+        initialTextElements.forEach(function(element) {
+            detectFont(element);
+        });
+        
+        document.querySelector('.list').addEventListener('DOMNodeInserted', function(event) {
+            var insertedElement = event.target;
+            
+            if (insertedElement.classList && insertedElement.classList.contains('detect')) {
+                detectFont(insertedElement);
+            }
+        });
+        
     </script>
     
 </body>
