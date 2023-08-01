@@ -15,9 +15,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <h1>To-Do List </h1>
+                    <p class="message"></p>
                     <input type="text" id="input" placeholder="Press Enter To Add">
                     <ol class="example1">
                     </ol>
+                    <button class="clear">Clear Items</button>
                 </div>
             </div>
         </div>
@@ -25,12 +28,20 @@
     <script type="text/javascript">
         $(document).ready(function(){
             
-            $('#input').change(function(){
-                var input = $(this).val();
-                $('ol').append('<li  class="draggable" draggable="true" >'+ '<span> '+ input +'</span> ' +'<i class="fa-solid fa-check"></i>' + '<i class="fa-solid fa-pen"></i>'+ '<i class="fa-solid fa-trash"></i>'+ '</li>');
-                $(this).val('');
+            $('#input').keypress(function(e){
+                if(e.which == 13){
+                    var input = $(this).val();
+                    var newItem = $('<li  class="draggable" draggable="true" >'+ '<span> '+ input +'</span> ' +'<i class="fa-solid fa-check"></i>' + '<i class="fa-solid fa-pen"></i>'+ '<i class="fa-solid fa-trash"></i>'+ '</li>');
+                    
+                    newItem.hide();
+                    $('ol').append(newItem);
+                    newItem.slideToggle(300);
+                    $(this).val('');
+                    $('.message').removeClass('remove').empty().append('New Task Has Been Added!').addClass('add');
+                    return false;
+                }
             });
-
+            
             $('ol').on('click', '.fa-pen', function(){
                 $(this).closest("li").find("span").prop("contenteditable", true).focus();
                 return false;
@@ -38,7 +49,8 @@
             });
             
             $('ol').on('click', '.fa-trash', function(){
-                $(this).closest('li').fadeOut(200);
+                $(this).closest('li').slideUp(300);
+                $('.message').removeClass('add').empty().append('One Task was removed!').addClass('remove');
                 
             });
             
@@ -47,10 +59,15 @@
                 
             });
             
-        
-          
+            $('button').click( function(){
+                $('ol li').fadeOut(function() {
+                    $(this).remove();
+                });
+                $('.message').removeClass('add').empty().append('All Tasks were cleared!').addClass('remove');
+            });
+            
         });
-
+        
     </script>
     
 </body>
